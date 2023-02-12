@@ -11,9 +11,9 @@ import java.util.Date;
 @Data
 public class AccountDTO {
     @NotNull
-    private String accountID;
+    private String  accountId;
     @NotNull
-    private String accountname;
+    private AccountName accountName;
     @NotNull
     private Float accountBalance;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE,pattern = "yyyy-MM-dd")
