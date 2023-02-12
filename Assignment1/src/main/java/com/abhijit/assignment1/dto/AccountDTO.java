@@ -1,23 +1,28 @@
-package com.abhijit.Assignment1.dto;
+package com.abhijit.assignment1.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Date;
-
+/*
+responsibility - capture account attributes
+ */
 @Data
+@AllArgsConstructor
 public class AccountDTO {
+
     @NotNull
     private String  accountId;
     @NotNull
-    private AccountName accountName;
+    private String customerName;
     @NotNull
     private Float accountBalance;
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE,pattern = "yyyy-MM-dd")
     private LocalDate createDate;
+
 
 
 }

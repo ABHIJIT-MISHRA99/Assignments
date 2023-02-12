@@ -1,4 +1,4 @@
-package com.abhijit.Assignment1;
+package com.abhijit.assignment1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
