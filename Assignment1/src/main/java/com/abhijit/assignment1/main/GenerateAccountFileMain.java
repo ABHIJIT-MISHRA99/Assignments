@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.util.Random;
 
 @Service
 public class GenerateAccountFileMain {
@@ -17,6 +19,8 @@ public class GenerateAccountFileMain {
     private AccountFileService accountFileService;
     @Autowired
     private CustomerNameGeneratorService customerNameGeneratorService;
+    private static final DecimalFormat df=new DecimalFormat("0.00");
+
 
 
     @PostConstruct
@@ -28,11 +32,13 @@ public class GenerateAccountFileMain {
             // account id
             String accountId=String.format("%0d", i);
             // account balance
-
+            Random rd=new Random();
+            float input=rd.nextFloat();
+            float finalNumber= Float.parseFloat(df.format(input));
             // create date
-            LocalDate now = LocalDate.now();
-            AccountDTO accountDTO = new AccountDTO(accountId, generateName, 0.0F, now);
-            accountFileService.writeAccount(accountDTO);
+            LocalDate n = LocalDate.now();
+            AccountDTO account = new AccountDTO(accountId,generateName,finalNumber,n);
+            accountFileService.writeAccount(account);
         }
     }
 
